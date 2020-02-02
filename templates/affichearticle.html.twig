@@ -1,0 +1,67 @@
+{% extends "fichier.html.twig" %}
+  
+{% block main %}
+    
+   
+    
+<div class="container">
+<div class="row">
+ <div class="col-6 col-md-4">
+        <div class="list-group">
+         
+            <a href="{{ path('liste_articles') }}" class="list-group-item">Liste des articles </a>
+                        <a href="{{ path('liste_categorie') }}" class="list-group-item">Liste des categorie </a>
+            <a href="{{ path('liste_user') }}" class="list-group-item">Liste des Utilisateurs </a>
+
+            
+        <a href="{{ path('produit_new') }}" class="list-group-item">Ajouter article</a>
+        <a href="/categorie/new" class="list-group-item">Ajouter catégorie</a>
+          </div>
+        </div>
+ 
+ <div class="col">
+ <table class="table table-striped">
+  <thead>
+    <tr>
+        
+ <th scope="col">image</th>
+       <th scope="col">id</th>
+
+      <th scope="col">nom</th>
+      <th scope="col">descreption</th>
+       <th scope="col">prix</th>
+      <th scope="col">catégorie</th>
+<th scope="col">Action</th>
+
+      
+
+    </tr>
+  </thead>
+  <tbody>
+  <h2>liste des produit </h2><br><br>
+ {% for produit in produits %}
+
+        <tr>
+        <td> <img src="{{ asset(produit.image) }}" alt="" width="60"> </td>
+                <td>{{ produit.id }}</td>
+
+        <td>{{ produit.article }}</td>
+        <td>{{ produit.descreption }}</td>
+        <td>{{ produit.price }}</td>
+        <td>{{ produit.categorie.nom }}</td>
+<td> <a href="/{{ produit.id }}/edit">
+<span>&#9998;</span></a>
+
+<td> 
+
+<a href="/produitdelate/{{ produit.id }}" >
+<span >&#10008;</span></a>
+
+</td>
+
+        </tr>
+        
+
+         {% endfor %}
+  </table>  
+  {% endblock %}

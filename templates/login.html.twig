@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+  
+{% block main %}
+
+<div class="container">
+    <div class="row">
+
+      <div class="col-lg-3">
+ 
+        
+        <div class="list-group">
+          {% for categorie in categories %}
+            <a href="/category/{{ categorie.id }}" class="list-group-item">{{ categorie.nom }}</a>
+          {% endfor %}
+        </div>
+
+      </div>
+     
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+    <div class="col">
+        
+
+                            
+        <div>
+                
+
+<form action="/login_check" method="post">
+            <input type="hidden" name="_csrf_token" value="xwrPUU40QwhorrlCO-AWX-x-j0Wn_r-Wysp6ytHwvyI" />
+    
+    <label for="username">Username</label>
+    <input type="text" id="username" name="_username" value="" required="required" autocomplete="username" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">Remember me</label>
+
+    <input type="submit" id="_submit" name="_submit" value="Log in" />
+</form>
+
+        </div>
+         <div>
+                <a href="/home">
+                    Log out
+                </a>
+                    </div>
+
+    </body>
+</html>
+      </div>
+
+{% endblock %}

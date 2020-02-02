@@ -1,0 +1,48 @@
+{% extends 'fichier.html.twig' %}
+
+{% block title %}Categorie index{% endblock %}
+{% block main %}
+
+<div class="container">
+<div class="row">
+ <div class="col-6 col-md-4">
+        <div class="list-group">
+         
+            <a href="{{ path('liste_articles') }}" class="list-group-item">Liste des articles </a>
+                        <a href="{{ path('liste_categorie') }}" class="list-group-item">Liste des categorie </a>
+            <a href="{{ path('liste_user') }}" class="list-group-item">Liste des Utilisateurs </a>
+
+            
+        <a href="{{ path('produit_new') }}" class="list-group-item">Ajouter article</a>
+        <a href="/categorie/new" class="list-group-item">Ajouter catégorie</a>
+          </div>
+        </div>
+ 
+ <div class="col">
+    <h1>Categorie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.nom }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('categorie_new') }}">Create new</a>
+{% endblock %}

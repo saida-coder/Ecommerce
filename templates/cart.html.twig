@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+  
+{% block main %}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+        
+ <th scope="col">image</th>
+      <th scope="col">nom</th>
+      <th scope="col">quantité</th>
+      <th scope="col">prix</th>
+      <th scope="col">action</th>
+
+      
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for produit in produits %}
+        <tr>
+        <td> <img src="{{ asset(produit.image) }}" alt="" width="60"> </td>
+        <td>{{ produit.article }}</td>
+        <td>{{ panier[produit.id] }}</td>
+        <td>{{ produit.price }}</td>
+        
+        <td> 
+
+        <a href="/remove/{{ produit.id }}" >
+        <span >&#10008;</span></a>
+</a>
+</td>
+
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+{% endblock %}

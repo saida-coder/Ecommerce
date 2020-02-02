@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+  
+{% block main %}
+
+<div class="container">
+    <div class="row">
+
+      <div class="col-lg-3">
+ 
+        
+        <div class="list-group">
+          {% for categorie in categories %}
+            <a href="/category/{{ categorie.id }}" class="list-group-item">{{ categorie.nom }}</a>
+          {% endfor %}
+        </div>
+
+      </div>
+      <html>
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        
+                            
+        <div>
+                <div class="col">
+<form name="fos_user_registration_form" method="post" action="/register/" class="fos_user_registration_register">
+    <div id="fos_user_registration_form">
+    
+    <label for="fos_user_registration_form_email" class="required">Email</label>
+    <div><input type="email" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" required="required" /></div><br>
+    <div><label for="fos_user_registration_form_username" class="required">Username</label><br><input type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" required="required" maxlength="180" pattern=".{2,}" /></div><br>
+    <div><label for="fos_user_registration_form_plainPassword_first" class="required">Password</label><br><input type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" autocomplete="new-password" /></div><br>
+    <div><label for="fos_user_registration_form_plainPassword_second" class="required">Repeat password</label><br><input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" autocomplete="new-password" /></div>
+    <input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="3pONVTwuMz-WdU7DXgQT5LtGywtXCOwhXDCRc7Cz3TA" /></div>
+    <div><br>
+        <input type=" submit" class="btn btn-success" value="Register" />
+    </div>
+</form>
+        </div>
+    </body>
+    </div>
+</html>
+{% endblock %}

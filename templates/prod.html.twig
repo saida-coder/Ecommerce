@@ -1,0 +1,43 @@
+ {% extends "base.html.twig" %}
+  
+{% block main %}
+<div class="container">
+  <div class="row">
+      <div class="col-lg-3">
+        <div class="list-group">
+          {% for categorie in categories %}
+            <a href="/category/{{ categorie.id }}" class="list-group-item">{{ categorie.nom }}</a>
+          {% endfor %}
+        </div>
+
+      </div>
+     
+
+     <div class="col-lg-9">
+  
+
+
+        <div class="card mt-4">
+  
+          <img class="card-img-top img-fluid" src="{{ asset(vendeurs.image) }}" alt="">
+          <div class="card-body">
+            <h3 class="card-title">{{ vendeurs.article }}</h3>
+            <h4>{{vendeurs.price}}DT</h4>
+          
+            <p class="card-text">{{ vendeurs.description }}</p>
+           
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            4.0 stars<br>
+            <a href="/add_to_cart/{{ vendeurs.id }}" class="btn btn-success">Add to Card </a>
+          </div>
+        </div>
+       
+
+    </div>
+
+  </div>
+ 
+  
+<script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  {% endblock %}

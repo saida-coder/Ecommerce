@@ -1,0 +1,55 @@
+{% extends "fichier.html.twig" %}
+  
+{% block main %}
+    
+   
+    
+<div class="container">
+<div class="row">
+ <div class="col-6 col-md-4">
+        <div class="list-group">
+         
+            <a href="{{ path('liste_articles') }}" class="list-group-item">Liste des articles </a>
+                        <a href="{{ path('liste_categorie') }}" class="list-group-item">Liste des categorie </a>
+            <a href="{{ path('liste_user') }}" class="list-group-item">Liste des Utilisateurs </a>
+
+            
+        <a href="{{ path('produit_new') }}" class="list-group-item">Ajouter article</a>
+        <a href="/categorie/new" class="list-group-item">Ajouter catégorie</a>
+          </div>
+        </div>
+ <div class="col">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+        
+ 
+      <th scope="col">nom</th>
+      
+<th scope="col">Action</th>           
+           <h2>liste des categorie </h2><br><br>
+
+         {% for categorie in categories %}
+
+        <tr>
+        
+        
+        <td>{{ categorie.nom }}</td>
+<td> <a href="categorie/{{ categorie.id }}/edit" >
+<span>&#9998;</span></a>
+<td> 
+   <a href="/categorie/categoriedelate/{{ categorie.id }} ">
+
+<span>&#10008;</span></a>
+</form>
+
+
+</td>
+
+        </tr>
+        
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

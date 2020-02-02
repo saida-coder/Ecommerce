@@ -1,0 +1,30 @@
+{% extends "fichier.html.twig" %}
+  
+{% block main %}
+    
+   
+    
+<div class="container">
+<div class="row">
+ <div class="col-6 col-md-4">
+        <div class="list-group">
+         
+            <a href="{{ path('liste_articles') }}" class="list-group-item">Liste des articles </a>
+                        <a href="{{ path('liste_categorie') }}" class="list-group-item">Liste des categorie </a>
+            <a href="{{ path('liste_user') }}" class="list-group-item">Liste des Utilisateurs </a>
+
+            
+        <a href="{{ path('produit_new') }}" class="list-group-item">Ajouter article</a>
+        <a href="/categorie/new" class="list-group-item">Ajouter catégorie</a>
+          </div>
+        </div>
+ 
+ 
+ <div class="col">
+    <h1>Create new Produit</h1>
+
+    {{ include('produit/_form.html.twig') }}
+
+    
+    <a href="/admin">back to list</a>
+{% endblock %}

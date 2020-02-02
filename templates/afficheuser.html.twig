@@ -1,0 +1,58 @@
+{% extends "fichier.html.twig" %}
+  
+{% block main %}
+    
+   
+    
+<div class="container">
+<div class="row">
+ <div class="col-6 col-md-4">
+        <div class="list-group">
+         
+            <a href="{{ path('liste_articles') }}" class="list-group-item">Liste des articles </a>
+                        <a href="{{ path('liste_categorie') }}" class="list-group-item">Liste des categorie </a>
+            <a href="{{ path('liste_user') }}" class="list-group-item">Liste des Utilisateurs </a>
+
+            
+        <a href="{{ path('produit_new') }}" class="list-group-item">Ajouter article</a>
+        <a href="/categorie/new" class="list-group-item">Ajouter catégorie</a>
+          </div>
+        </div>
+     <div class="col">
+<table class="table table-striped">
+  <thead>
+      <th scope="col">nom</th>
+       <th scope="col">mail</th>
+<th scope="col">Action</th> 
+<th></th>          
+<tbody>
+         {% for user in users %}
+
+        <tr>
+        
+        
+        <td>{{ user.username }}</td>
+<td>{{ user.email }}</td>
+
+  
+   <td><a href="{{ path('deleteuser',{'id':user.id}) }} "><span>&#10008;</span></a></td>
+   <td>
+            {% if user.enabled == 1  %}
+
+            <a href="{{ path('disable',{'id':user.id}) }}" class="btn btn-danger">disable</a>
+           {% else %}
+
+            <a href="{{ path('enable',{'id':user.id}) }}" class="btn btn-success">enable</a>
+         {% endif %}
+   
+   
+   
+   
+   </td>
+</tr>
+        
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endblock %}

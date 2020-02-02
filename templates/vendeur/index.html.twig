@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vendeur index{% endblock %}
+
+{% block body %}
+    <h1>Vendeur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Article</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vendeur in vendeurs %}
+            <tr>
+                <td>{{ vendeur.id }}</td>
+                <td>{{ vendeur.article }}</td>
+                <td>{{ vendeur.description }}</td>
+                <td>{{ vendeur.price }}</td>
+                <td>{{ vendeur.image }}</td>
+                <td>
+                    <a href="{{ path('vendeur_show', {'id': vendeur.id}) }}">show</a>
+                    <a href="{{ path('vendeur_edit', {'id': vendeur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('vendeur_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "fichier.html.twig" %}
+{% block main %}
+<div class="container">
+<div class="row">
+ <div class="col-6 col-md-4">
+        <div class="list-group">
+         
+            <a href="{{ path('liste_articles') }}" class="list-group-item">Liste des articles </a>
+                        <a href="{{ path('liste_categorie') }}" class="list-group-item">Liste des categorie </a>
+            <a href="{{ path('liste_user') }}" class="list-group-item">Liste des Utilisateurs </a>
+
+            
+        <a href="{{ path('produit_new') }}" class="list-group-item">Ajouter article</a>
+        <a href="/categorie/new" class="list-group-item">Ajouter catégorie</a>
+          </div>
+        </div>
+
+      <div class="col">
+      <form action="/Ajouter_article" method="post">
+      <label for="formGroupExampleInput">Article:</label>
+    <select class="custom-select my-1 mr-sm-1" id="inlineFormCustomSelectPref">
+    <option selected>Choose...</option>
+    {% for produit in produits %}
+    <option >{{ produit.article }}</option>
+    {% endfor %}
+  
+  </select>
+  
+  
+    <label for="formGroupExampleInput2">Description:</label>
+    <textarea class="form-control" rows="5" id="comment"></textarea>
+<br>
+<label>image:</label>
+  
+<input type="file" class="form-control-file" id="exampleFormControlFile1">
+<br>
+ 
+
+  <div class="form-group row">
+ <label>prix:</label>
+ <div class="col">
+ 
+
+    <input type="text" class="form-control" id="formGroupExampleInput"> 
+
+      </div>
+      
+      <label>categorie:</label>
+      <div class="col">
+  <select class="custom-select my-1 mr-sm-1" id="inlineFormCustomSelectPref">
+    <option selected>Choose...</option>
+    {% for categorie in categories %}
+    <option >{{ categorie.nom }}</option>
+    {% endfor %}
+  
+  </select>  <br><br>
+  <div class="col-8">
+  <a href="/Ajouter_article" class="btn btn-primary">Modifier </a>
+  </div>
+</div>
+
+ 
+</div>
+      </div>
+      
+  </div>
+  </div>
+
+ 
+      </div>
+     
+</form>
+
+{% endblock %}
